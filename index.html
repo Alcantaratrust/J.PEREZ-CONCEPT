@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.PEREZ CONCEPT | Haute Couture & Modern Elegance</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#F7E9C5',
+                            300: '#E4C390',
+                            400: '#D9A85A',
+                            500: '#C98E3A',
+                            600: '#A96E20',
+                            700: '#785117',
+                        },
+                        terracotta: '#B55E3B',
+                        clay: '#8B5E3C',
+                        sand: '#E8D7B2',
+                        forest: '#28362C',
+                        obsidian: '#120D0B',
+                        darkCard: 'rgba(18, 18, 24, 0.75)',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        pulseGlow: 'pulseGlow 4s infinite ease-in-out',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a35;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Gold Gradient Text Utility */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF1B5 0%, #D4AF37 50%, #9A7712 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gold-gradient {
+            border-image: linear-gradient(to right, #D4AF37, #5A4308) 1;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        body {
+            background: linear-gradient(180deg, #120d0b 0%, #1a120e 100%);
+        }
+
+        .african-accent {
+            background: linear-gradient(135deg, #E8D7B2 0%, #C98E3A 45%, #B55E3B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card backdrop blur */
+        .glass-panel {
+            background: rgba(18, 18, 22, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Hero Image Fade Switcher */
+        .hero-slide {
+            transition: opacity 1.2s ease-in-out, transform 1.8s ease-out;
+        }
+
+        /* Smooth Hide/Show Modals */
+        .modal-overlay {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.hidden-modal {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-neutral-200 font-sans selection:bg-gold-500 selection:text-black overflow-x-hidden">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Brand Monogram & Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-500/40 flex items-center justify-center bg-black/40 group-hover:border-gold-500 transition-colors duration-300">
+                    <span class="font-cinzel text-gold-500 text-lg tracking-tighter font-bold group-hover:scale-105 transition-transform">JP</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-cinzel tracking-[0.25em] text-lg font-semibold text-white group-hover:text-gold-400 transition-colors">J.PEREZ</span>
+                    <span class="font-sans text-[9px] tracking-[0.4em] text-gold-500/80 -mt-1 uppercase">Concept</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] font-medium uppercase text-neutral-300">
+                <a href="#collections" class="hover:text-gold-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 hover:after:w-full after:transition-all">Collections</a>
+                <a href="#ethos" class="hover:text-gold-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 hover:after:w-full after:transition-all">Ethos</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 hover:after:w-full after:transition-all">Bespoke Atelier</a>
+                <a href="#runway" class="hover:text-gold-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 hover:after:w-full after:transition-all">Runway</a>
+                <a href="#contact" class="hover:text-gold-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gold-500 hover:after:w-full after:transition-all">Contact</a>
+            </nav>
+
+            <!-- Header Action Button & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <button onclick="openBookingModal()" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full border border-gold-500/60 text-gold-400 text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-black transition-all duration-300 shadow-sm gold-glow-hover font-medium">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book Appointment
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold-400 text-xl focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-obsidian/95 border-b border-gold-500/20 px-6 py-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4 text-sm uppercase tracking-widest text-neutral-300">
+                <a href="#collections" class="hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Collections</a>
+                <a href="#ethos" class="hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Ethos</a>
+                <a href="#services" class="hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Bespoke Atelier</a>
+                <a href="#runway" class="hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Runway</a>
+                <a href="#contact" class="hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Contact</a>
+                <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full text-center py-3 border border-gold-500 text-gold-400 rounded-full text-xs font-semibold uppercase tracking-widest mt-2">
+                    Book Private Appointment
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen min-h-[680px] w-full overflow-hidden flex items-center justify-center">
+        <!-- Hero Background Images Carousel -->
+        <div id="hero-slider" class="absolute inset-0 w-full h-full">
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-100 scale-100" style="background-image: url('https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 scale-105" style="background-image: url('https://images.pexels.com/photos/19809165/pexels-photo-19809165.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+            <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 scale-105" style="background-image: url('https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+        </div>
+
+        <!-- Dark Radial Overlay & Vignette -->
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-black/70"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-obsidian/40 to-obsidian/90"></div>
+
+        <!-- Content Overlay -->
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-12">
+            <!-- Subtitle badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-gold-500/30 text-gold-400 text-xs tracking-[0.3em] uppercase mb-6 animate-fadeIn">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
+                Heritage / Spring 2026 Collection
+            </div>
+
+            <!-- Headline -->
+            <h1 class="font-cinzel text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.15]">
+                AFRICAN LUXURY <br>
+                <span class="african-accent font-extrabold">IN MODERN FORM</span>
+            </h1>
+
+            <!-- Tagline -->
+            <p class="max-w-2xl mx-auto text-neutral-300 text-xs sm:text-sm md:text-base font-light tracking-[0.2em] uppercase mb-10 leading-relaxed">
+                Kente Storytelling &bull; Aso-oke Craft &bull; Contemporary Elegance
+            </p>
+
+            <!-- Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#collections" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 to-terracotta text-black font-semibold text-xs tracking-[0.2em] uppercase hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-gold-500/20 transform hover:-translate-y-0.5">
+                    Explore Heritage Collection
+                </a>
+                <button onclick="openBookingModal('Bespoke Fitting')" class="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white border border-white/20 hover:border-gold-500/80 font-medium text-xs tracking-[0.2em] uppercase hover:bg-white/5 transition-all duration-300">
+                    Private Styling Session
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Indicators & Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-0 right-0 z-20 flex flex-col items-center gap-4">
+            <div class="flex items-center gap-3" id="hero-dots">
+                <button onclick="setHeroSlide(0)" class="w-8 h-1 rounded-full bg-gold-500 transition-all duration-300" aria-label="Slide 1"></button>
+                <button onclick="setHeroSlide(1)" class="w-3 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" aria-label="Slide 2"></button>
+                <button onclick="setHeroSlide(2)" class="w-3 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300" aria-label="Slide 3"></button>
+            </div>
+            <a href="#ethos" class="text-white/40 hover:text-gold-400 transition-colors animate-bounce mt-2" aria-label="Scroll down">
+                <i class="fa-solid fa-chevron-down text-sm"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- BRAND ETHOS & NARRATIVE SECTION -->
+    <section id="ethos" class="py-24 md:py-32 relative border-b border-white/5 bg-gradient-to-b from-obsidian to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <!-- Narrative Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-gold-500"></span>
+                        <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">African Heritage Atelier</span>
+                    </div>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
+                        Rooted in tradition, shaped for the modern African woman.
+                    </h2>
+                    <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
+                        Founded on the language of handwoven textiles, ceremonial elegance, and refined tailoring, <strong class="text-white font-normal">J.PEREZ CONCEPT</strong> fuses African heritage with contemporary couture. Each garment is handcrafted using rich cottons, luxurious silks, and artisanal woven fabrics inspired by Kente, Aso-oke, and other African textile traditions.
+                    </p>
+                    <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light">
+                        Our Lagos atelier and global styling rooms create statement pieces for women who want culture, artistry, and modern confidence in every silhouette. We embrace slow fashion, meaningful craft, and silhouettes that honour ancestry without losing their forward edge.
+                    </p>
+                    
+                    <!-- Craftsmanship Pillars List -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3 p-3 rounded-lg border border-white/5 bg-neutral-900/40">
+                            <i class="fa-solid fa-scissors text-gold-500 text-lg mt-0.5"></i>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">Custom Patterning</h4>
+                                <p class="text-xs text-neutral-400 mt-0.5">Built precisely to your unique anatomical measurements.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3 rounded-lg border border-white/5 bg-neutral-900/40">
+                            <i class="fa-solid fa-leaf text-gold-500 text-lg mt-0.5"></i>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">Sustainable Silk & Velvet</h4>
+                                <p class="text-xs text-neutral-400 mt-0.5">Ethically sourced textiles certified by European mills.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Image Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-gold-500/20 shadow-2xl group">
+                        <img src="https://images.pexels.com/photos/19809165/pexels-photo-19809165.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black woman in African-inspired atelier couture" class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl">
+                            <p class="font-cinzel text-gold-400 text-sm italic">"Luxury is not about opulence, but about flawless intention."</p>
+                            <p class="text-neutral-400 text-xs mt-1 uppercase tracking-wider">&mdash; J. Perez, Creative Director</p>
+                        </div>
+                    </div>
+                    <!-- Decorative Gold Accent Frame -->
+                    <div class="absolute -bottom-4 -right-4 w-full h-full border border-gold-500/30 rounded-2xl -z-0 hidden sm:block"></div>
+                </div>
+            </div>
+
+            <!-- Stats / Counter Grid -->
+            <div id="stats-section" class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-20 pt-12 border-t border-white/10">
+                <div class="text-center p-6 rounded-xl glass-panel">
+                    <div class="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-gold-gradient mb-2" data-target="100">0</div>
+                    <p class="text-xs text-neutral-400 tracking-widest uppercase">% Handcrafted Integrity</p>
+                </div>
+                <div class="text-center p-6 rounded-xl glass-panel">
+                    <div class="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-gold-gradient mb-2" data-target="450">0</div>
+                    <p class="text-xs text-neutral-400 tracking-widest uppercase">Hours/Garment Avg.</p>
+                </div>
+                <div class="text-center p-6 rounded-xl glass-panel">
+                    <div class="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-gold-gradient mb-2" data-target="3">0</div>
+                    <p class="text-xs text-neutral-400 tracking-widest uppercase">Global Flagship Ateliers</p>
+                </div>
+                <div class="text-center p-6 rounded-xl glass-panel">
+                    <div class="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-gold-gradient mb-2" data-target="18">0</div>
+                    <p class="text-xs text-neutral-400 tracking-widest uppercase">Master Couture Artisans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED COLLECTIONS / LOOKBOOK SECTION -->
+    <section id="collections" class="py-24 relative bg-obsidian border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">Tradition in motion</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2">Heritage Collection</h2>
+                <p class="text-neutral-400 text-sm mt-3">Explore signature silhouettes shaped by African textiles, ceremonial elegance, and a modern sense of power.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="filterCollection('all')" class="filter-tab active px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 bg-gold-500 text-black shadow-md" data-filter="all">All Pieces</button>
+                <button onclick="filterCollection('bespoke')" class="filter-tab px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 glass-panel text-neutral-300 hover:text-white hover:border-gold-500/50" data-filter="bespoke">Kente</button>
+                <button onclick="filterCollection('runway')" class="filter-tab px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 glass-panel text-neutral-300 hover:text-white hover:border-gold-500/50" data-filter="runway">Aso-oke</button>
+                <button onclick="filterCollection('rtw')" class="filter-tab px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 glass-panel text-neutral-300 hover:text-white hover:border-gold-500/50" data-filter="rtw">Kaftan</button>
+            </div>
+
+            <!-- Collection Grid -->
+            <div id="collection-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="bespoke">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black woman in heritage-inspired couture styling" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-gold-400 border border-gold-500/30 uppercase tracking-widest">
+                            Bespoke Only
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(1)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Autumn / Winter '26</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">The Midnight Velvet Tuxedo</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Structured silk lapel, hand-stitched interior canvassing with gold-embroidered initials.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">$8,500 USD</span>
+                            <button onclick="openQuickView(1)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="runway">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/19809165/pexels-photo-19809165.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black fashion model in silk and heritage-inspired silhouette" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-gold-400 border border-gold-500/30 uppercase tracking-widest">
+                            Runway Exclusive
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(2)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Paris Runway Piece</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">Sculptural Gold Silk Gown</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Fluid metallic silk drape with hand-pleated corset and extended train.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">Price Upon Inquiry</span>
+                            <button onclick="openQuickView(2)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="rtw">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black model in contemporary heritage fashion wear" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-neutral-300 border border-white/20 uppercase tracking-widest">
+                            Ready-To-Wear
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(3)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Capsule Collection</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">Avant-Garde Wool Trench</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Asymmetric cashmere-wool blend coat with oversized brushed gold hardware.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">$3,200 USD</span>
+                            <button onclick="openQuickView(3)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="bespoke">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/2216607/pexels-photo-2216607.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black portrait in sculptural tailoring with heritage elegance" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-gold-400 border border-gold-500/30 uppercase tracking-widest">
+                            Bespoke Only
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(4)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Heritage Sartorial</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">Obsidian Double-Breasted Suit</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Super 180s Merino wool with charcoal chalk-stripe details and horn buttons.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">$9,100 USD</span>
+                            <button onclick="openQuickView(4)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="runway">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black evening couture portrait with rich heritage-inspired styling" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-gold-400 border border-gold-500/30 uppercase tracking-widest">
+                            Couture Masterpiece
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(5)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Haute Couture '26</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">Feathered Satin Evening Cape</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Hand-applied ostrich plumes on silk organza base with crystal embellishments.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">Price Upon Inquiry</span>
+                            <button onclick="openQuickView(5)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="collection-card group rounded-2xl overflow-hidden glass-panel border border-white/10 hover:border-gold-500/40 transition-all duration-500 flex flex-col" data-category="rtw">
+                    <div class="relative h-[420px] overflow-hidden bg-neutral-900">
+                        <img src="https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black model in heritage coat styling and warm neutral tones" class="w-full h-full object-cover object-top group-hover:scale-108 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-neutral-300 border border-white/20 uppercase tracking-widest">
+                            Ready-To-Wear
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <button onclick="openQuickView(6)" class="absolute bottom-4 right-4 bg-white/10 hover:bg-gold-500 hover:text-black text-white p-3 rounded-full backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Quick View">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <span class="text-[10px] text-gold-500 tracking-[0.2em] uppercase font-medium">Winter Essential</span>
+                            <h3 class="font-cinzel text-xl text-white font-semibold mt-1">Structured Cashmere Overcoat</h3>
+                            <p class="text-neutral-400 text-xs mt-2 line-clamp-2">Double-faced Italian cashmere with sculpted peak lapels and horn fasteners.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-white/10">
+                            <span class="font-cinzel text-sm text-gold-400 font-semibold">$4,800 USD</span>
+                            <button onclick="openQuickView(6)" class="text-xs uppercase tracking-widest text-neutral-300 hover:text-gold-400 transition-colors flex items-center gap-1 font-medium">
+                                Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ATELIER SERVICES SECTION -->
+    <section id="services" class="py-24 bg-gradient-to-b from-obsidian via-black to-obsidian relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">Private Client Services</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2">Bespoke Atelier Experience</h2>
+                </div>
+                <p class="text-neutral-400 text-xs sm:text-sm max-w-md">
+                    From red carpet premieres to intimate private wardrobe curation, our team of master tailors provides discrete, hyper-personalized luxury service.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-gold-500/40 bg-gold-500/10 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-[#fa-ruler-combined] fa-ruler-combined"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white font-semibold mb-3">Custom Couture Fitting</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            A minimum of three private fitting sessions at our Paris or NYC Atelier. Master patternmakers craft a personal wooden dress form or bespoke body canvas.
+                        </p>
+                        <ul class="text-xs text-neutral-300 space-y-2 mt-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Personalized pattern drafting</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Private champagne lounge fitting</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Lifetime alterations included</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Bespoke Fitting')" class="mt-8 w-full py-3 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-black transition-all font-semibold">
+                        Schedule Fitting
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-panel p-8 rounded-2xl border border-gold-500/30 bg-gold-500/5 hover:border-gold-500 transition-all duration-300 flex flex-col justify-between group relative gold-glow">
+                    <div class="absolute -top-3 right-6 bg-gold-500 text-black font-semibold text-[10px] tracking-widest px-3 py-1 rounded-full uppercase">
+                        Most Requested
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-gold-500 bg-gold-500 flex items-center justify-center text-black text-xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white font-semibold mb-3">Red Carpet Styling</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            Comprehensive image consultation, exclusive runway archive access, and on-site celebrity styling for global galas, film festivals, and award ceremonies.
+                        </p>
+                        <ul class="text-xs text-neutral-300 space-y-2 mt-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Priority runway archive pulls</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Dedicated on-site tailor & artist</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Express global garment dispatch</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Red Carpet Styling')" class="mt-8 w-full py-3 rounded-full bg-gold-500 text-black text-xs uppercase tracking-widest hover:bg-gold-400 transition-all font-bold shadow-lg">
+                        Reserve Stylist
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl border border-gold-500/40 bg-gold-500/10 flex items-center justify-center text-gold-400 text-xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wine-glass-stripe"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white font-semibold mb-3">Private Trunk Shows</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            In-home or private penthouse presentation of unreleased upcoming capsule collections before public press release. Tailored for private collectors.
+                        </p>
+                        <ul class="text-xs text-neutral-300 space-y-2 mt-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Unreleased collection access</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Creative Director consultation</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-500 text-[10px]"></i> Complimentary champagne service</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Private Trunk Show')" class="mt-8 w-full py-3 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-black transition-all font-semibold">
+                        Request Trunk Show
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RUNWAY & EDITORIAL PRESS SECTION -->
+    <section id="runway" class="py-24 bg-obsidian relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">In The Press</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mt-2">Editorial Acclaim</h2>
+            </div>
+
+            <!-- Press Carousel -->
+            <div class="relative max-w-4xl mx-auto glass-panel p-8 sm:p-12 rounded-3xl border border-gold-500/20 text-center">
+                <div class="text-gold-500 text-3xl mb-6"><i class="fa-solid fa-quote-left"></i></div>
+                
+                <div id="press-quote-container" class="min-h-[120px] flex flex-col justify-center transition-all duration-500">
+                    <p id="press-quote" class="font-cinzel text-lg sm:text-2xl text-white font-medium leading-relaxed italic">
+                        "J.PEREZ CONCEPT brings a breathtaking architectural weight back to Paris Haute Couture week—redefining tailoring for the modern connoisseur."
+                    </p>
+                    <span id="press-author" class="text-gold-400 text-xs font-semibold tracking-[0.3em] uppercase mt-6 block">
+                        &mdash; Vogue International
+                    </span>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="flex items-center justify-center gap-6 mt-8">
+                    <button onclick="prevPressQuote()" class="w-10 h-10 rounded-full border border-white/20 text-white hover:border-gold-500 hover:text-gold-400 transition-colors flex items-center justify-center text-xs" aria-label="Previous quote">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div class="flex gap-2" id="press-dots">
+                        <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/30"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/30"></span>
+                    </div>
+                    <button onclick="nextPressQuote()" class="w-10 h-10 rounded-full border border-white/20 text-white hover:border-gold-500 hover:text-gold-400 transition-colors flex items-center justify-center text-xs" aria-label="Next quote">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Runway Photo Grid Showcase -->
+            <div class="mt-20">
+                <h3 class="font-cinzel text-xl text-white text-center mb-8 tracking-widest uppercase">Runway Moments</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden group">
+                        <img src="https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Black woman in luxury heritage styling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] text-white/80 uppercase tracking-widest bg-black/60 px-2 py-1 rounded backdrop-blur-sm">Lagos In Focus</span>
+                    </div>
+                    <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden group">
+                        <img src="https://images.pexels.com/photos/2216607/pexels-photo-2216607.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Black man in atelier styling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] text-white/80 uppercase tracking-widest bg-black/60 px-2 py-1 rounded backdrop-blur-sm">Accra Atelier</span>
+                    </div>
+                    <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden group">
+                        <img src="https://images.pexels.com/photos/19809165/pexels-photo-19809165.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Black woman in a couture heritage runway moment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] text-white/80 uppercase tracking-widest bg-black/60 px-2 py-1 rounded backdrop-blur-sm">Heritage Debut</span>
+                    </div>
+                    <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden group">
+                        <img src="https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Black man backstage at the atelier" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors"></div>
+                        <span class="absolute bottom-3 left-3 text-[10px] text-white/80 uppercase tracking-widest bg-black/60 px-2 py-1 rounded backdrop-blur-sm">Backstage Atelier</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP NEWSLETTER & FOOTER SECTION -->
+    <footer id="contact" class="bg-black pt-20 pb-12 relative overflow-hidden border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- VIP Club Subscription Box -->
+            <div class="glass-panel rounded-3xl p-8 sm:p-12 mb-20 border border-gold-500/30 relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-3">
+                        <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">Private Circle</span>
+                        <h3 class="font-cinzel text-2xl sm:text-3xl text-white font-semibold">Join The Atelier Circle</h3>
+                        <p class="text-neutral-400 text-xs sm:text-sm">
+                            Receive private invitations to unreleased runway drops, private trunk shows, and editorial previews.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <form id="newsletter-form" onsubmit="handleNewsletterSubmit(event)" class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" id="newsletter-email" required placeholder="Enter your private email..." class="flex-grow bg-neutral-900 border border-white/20 focus:border-gold-500 rounded-full px-6 py-4 text-xs text-white placeholder-neutral-500 focus:outline-none transition-colors">
+                            <button type="submit" class="px-8 py-4 bg-gold-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full hover:bg-gold-400 transition-colors shadow-lg whitespace-nowrap">
+                                Request Access
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Main Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+                <!-- Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full border border-gold-500/60 flex items-center justify-center bg-black/40">
+                            <span class="font-cinzel text-gold-500 text-xs font-bold">JP</span>
+                        </div>
+                        <span class="font-cinzel tracking-[0.2em] text-lg font-semibold text-white">J.PEREZ CONCEPT</span>
+                    </div>
+                    <p class="text-neutral-400 text-xs leading-relaxed max-w-sm">
+                        Sculptural silhouettes, bespoke sartorial tailoring, and avant-garde luxury craftsmanship engineered in Paris, New York, and London.
+                    </p>
+                    <div class="flex items-center space-x-4 text-neutral-400 text-sm pt-2">
+                        <a href="#" class="hover:text-gold-400 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gold-400 transition-colors" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="#" class="hover:text-gold-400 transition-colors" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="hover:text-gold-400 transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Global Ateliers -->
+                <div>
+                    <h4 class="font-cinzel text-sm text-white font-semibold mb-4 tracking-widest uppercase">Paris Atelier</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        24 Rue du Faubourg Saint-Honoré<br>
+                        75008 Paris, France<br>
+                        <span class="text-gold-500/80 mt-1 inline-block">+33 1 42 68 00 00</span>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel text-sm text-white font-semibold mb-4 tracking-widest uppercase">NYC Flagship</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        740 Madison Avenue<br>
+                        New York, NY 10065<br>
+                        <span class="text-gold-500/80 mt-1 inline-block">+1 (212) 555-0199</span>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-cinzel text-sm text-white font-semibold mb-4 tracking-widest uppercase">London Suite</h4>
+                    <p class="text-xs text-neutral-400 leading-relaxed">
+                        14 Mayfair Square<br>
+                        London W1J 8AJ, UK<br>
+                        <span class="text-gold-500/80 mt-1 inline-block">+44 20 7946 0912</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Legal -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+                <p>&copy; 2026 J. PEREZ CONCEPT. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-neutral-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-neutral-300 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-neutral-300 transition-colors">Press Inquiries</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quick-view-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-panel w-full max-w-3xl rounded-3xl overflow-hidden border border-gold-500/30 relative animate-fadeIn max-h-[90vh] flex flex-col md:flex-row">
+            <!-- Close Button -->
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/60 border border-white/20 text-white hover:text-gold-400 flex items-center justify-center transition-colors" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Image -->
+            <div class="md:w-1/2 h-64 md:h-auto relative bg-neutral-900">
+                <img id="qv-image" src="" alt="Product Detail" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Modal Content -->
+            <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <span id="qv-tag" class="text-[10px] text-gold-500 tracking-[0.25em] uppercase font-semibold block"></span>
+                    <h3 id="qv-title" class="font-cinzel text-2xl text-white font-semibold mt-1"></h3>
+                    <p id="qv-price" class="font-cinzel text-gold-400 text-lg font-bold mt-2"></p>
+                    
+                    <p id="qv-desc" class="text-neutral-300 text-xs leading-relaxed mt-4 border-t border-white/10 pt-4"></p>
+
+                    <!-- Specifications list -->
+                    <div class="mt-4 space-y-2 text-xs">
+                        <p class="text-neutral-400"><strong class="text-white font-normal">Crafting Time:</strong> <span id="qv-hours"></span> Hours</p>
+                        <p class="text-neutral-400"><strong class="text-white font-normal">Material:</strong> <span id="qv-material"></span></p>
+                        <p class="text-neutral-400"><strong class="text-white font-normal">Fitting:</strong> Private Atelier Consultation</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-3">
+                    <button onclick="closeQuickView(); openBookingModal('Couture Consultation');" class="w-full py-3.5 bg-gold-500 text-black font-semibold text-xs uppercase tracking-widest rounded-full hover:bg-gold-400 transition-colors shadow-lg">
+                        Inquire Bespoke Piece
+                    </button>
+                    <button onclick="closeQuickView()" class="w-full py-3 text-neutral-400 hover:text-white text-xs uppercase tracking-widest">
+                        Continue Browsing
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPOINTMENT BOOKING MODAL -->
+    <div id="booking-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="glass-panel w-full max-w-xl rounded-3xl p-6 sm:p-8 border border-gold-500/40 relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-neutral-900 border border-white/20 text-white hover:text-gold-400 flex items-center justify-center transition-colors" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Form Header -->
+            <div class="text-center mb-6">
+                <span class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold">Exclusive Access</span>
+                <h3 class="font-cinzel text-2xl sm:text-3xl text-white font-semibold mt-1">Book Atelier Appointment</h3>
+                <p class="text-neutral-400 text-xs mt-2">Select your location, date, and desired sartorial service.</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="appointment-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Full Name *</label>
+                    <input type="text" required placeholder="Lord / Lady / Mr. / Ms. Full Name" class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Email Address *</label>
+                        <input type="email" required placeholder="client@domain.com" class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Phone / WhatsApp *</label>
+                        <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Atelier Location *</label>
+                        <select id="booking-location" class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                            <option value="paris">Paris Atelier (Rue du Faubourg)</option>
+                            <option value="nyc">New York Flagship (Madison Ave)</option>
+                            <option value="london">London Suite (Mayfair)</option>
+                            <option value="virtual">Virtual Master Stylist Consultation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Service Required *</label>
+                        <select id="booking-service" class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                            <option value="Bespoke Fitting">Bespoke Custom Fitting</option>
+                            <option value="Red Carpet Styling">Red Carpet Styling</option>
+                            <option value="Bridal Couture">Bridal & Gala Couture</option>
+                            <option value="Private Trunk Show">Private Trunk Show</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Preferred Date *</label>
+                        <input type="date" required class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Preferred Time Slot *</label>
+                        <select class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors">
+                            <option value="morning">Morning (10:00 AM - 1:00 PM)</option>
+                            <option value="afternoon">Afternoon (2:00 PM - 5:00 PM)</option>
+                            <option value="evening">Private Evening Session (6:00 PM+)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-neutral-300 mb-2">Special Sartorial Notes</label>
+                    <textarea rows="3" placeholder="Specify garment preferences, event dates, or custom requirements..." class="w-full bg-neutral-900 border border-white/15 focus:border-gold-500 rounded-xl px-4 py-3 text-xs text-white focus:outline-none transition-colors resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold text-xs uppercase tracking-[0.2em] rounded-full hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg gold-glow-hover mt-4">
+                    Confirm Appointment Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* -------------------------------------------------------------
+           PRODUCTS DATA (For Quick View Modal)
+        ------------------------------------------------------------- */
+        const collectionProducts = {
+            1: {
+                title: "The Midnight Velvet Tuxedo",
+                tag: "Autumn / Winter '26 • Bespoke",
+                price: "$8,500 USD",
+                desc: "A triumph of modern formalwear. Hand-crafted with deep midnight blue Italian cotton velvet, silk satin shawl lapel, and precision internal canvassing. Features gold-monogrammed inner lining.",
+                hours: "180",
+                material: "100% Silk-Velvet Blend, Mulberry Silk Satin",
+                img: "https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            2: {
+                title: "Sculptural Gold Silk Gown",
+                tag: "Paris Runway Piece",
+                price: "Price Upon Inquiry",
+                desc: "Debuted at Paris Couture Week. Constructed from liquid metallic silk chiffon over a hand-boned internal corset. Designed to catch light dynamically with every movement.",
+                hours: "320",
+                material: "100% Metallic Silk Chiffon, French Lace",
+                img: "https://images.pexels.com/photos/19809165/pexels-photo-19809165.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            3: {
+                title: "Avant-Garde Wool Trench",
+                tag: "Capsule Collection",
+                price: "$3,200 USD",
+                desc: "An architectural outerwear statement. Heavy double-faced Italian wool and cashmere blend with oversized brushed gold hardware and an asymmetrical drape.",
+                hours: "95",
+                material: "85% Virgin Wool, 15% Cashmere",
+                img: "https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            4: {
+                title: "Obsidian Double-Breasted Suit",
+                tag: "Heritage Sartorial",
+                price: "$9,100 USD",
+                desc: "Tailored for the ultimate silhouette. Super 180s ultra-fine merino wool cut with structured shoulders and subtle chalk-stripe accenting. Includes two bespoke fitting sessions.",
+                hours: "210",
+                material: "Super 180s Merino Wool, Horn Buttons",
+                img: "https://images.pexels.com/photos/2216607/pexels-photo-2216607.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            5: {
+                title: "Feathered Satin Evening Cape",
+                tag: "Haute Couture '26",
+                price: "Price Upon Inquiry",
+                desc: "An ethereal gala piece. Individually hand-stitched ethical ostrich plumes arranged on black silk organza with subtle Swarovski crystal highlights.",
+                hours: "410",
+                material: "Ethical Plumes, Silk Organza, Crystals",
+                img: "https://images.pexels.com/photos/9509661/pexels-photo-9509661.jpeg?auto=compress&cs=tinysrgb&w=800"
+            },
+            6: {
+                title: "Structured Cashmere Overcoat",
+                tag: "Winter Essential",
+                price: "$4,800 USD",
+                desc: "Minimalist grandeur. Double-breasted winter overcoat tailored from rare Loro Piana cashmere. Features hidden interior pocketing for modern mobile devices and passports.",
+                hours: "110",
+                material: "100% Loro Piana Italian Cashmere",
+                img: "https://images.pexels.com/photos/17350030/pexels-photo-17350030.jpeg?auto=compress&cs=tinysrgb&w=800"
+            }
+        };
+
+        /* -------------------------------------------------------------
+           PRESS QUOTES DATA
+        ------------------------------------------------------------- */
+        const pressQuotes = [
+            {
+                quote: `"J.PEREZ CONCEPT brings a breathtaking architectural weight back to Paris Haute Couture week—redefining tailoring for the modern connoisseur."`,
+                author: "— Vogue International"
+            },
+            {
+                quote: `"Unapologetically sleek. PEREZ proves that craftsmanship and avant-garde drama can coexist in perfect equilibrium."`,
+                author: "— Harper's Bazaar"
+            },
+            {
+                quote: `"The premier destination for red carpet dressing. Precision sartorial art at its absolute zenith."`,
+                author: "— L'Officiel Paris"
+            }
+        ];
+        let currentPressIndex = 0;
+
+        /* -------------------------------------------------------------
+           HERO CAROUSEL LOGIC
+        ------------------------------------------------------------- */
+        let currentHeroSlide = 0;
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDotBtns = document.querySelectorAll('#hero-dots button');
+
+        function setHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'scale-105');
+                    slide.classList.add('opacity-100', 'scale-100');
+                } else {
+                    slide.classList.remove('opacity-100', 'scale-100');
+                    slide.classList.add('opacity-0', 'scale-105');
+                }
+            });
+
+            heroDotBtns.forEach((dot, i) => {
+                if (i === index) {
+                    dot.className = "w-8 h-1 rounded-full bg-gold-500 transition-all duration-300";
+                } else {
+                    dot.className = "w-3 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300";
+                }
+            });
+            currentHeroSlide = index;
+        }
+
+        setInterval(() => {
+            let next = (currentHeroSlide + 1) % heroSlides.length;
+            setHeroSlide(next);
+        }, 6000);
+
+        /* -------------------------------------------------------------
+           COLLECTION FILTER TABS LOGIC
+        ------------------------------------------------------------- */
+        function filterCollection(category) {
+            const tabs = document.querySelectorAll('.filter-tab');
+            const cards = document.querySelectorAll('.collection-card');
+
+            tabs.forEach(tab => {
+                if (tab.dataset.filter === category) {
+                    tab.className = "filter-tab active px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 bg-gold-500 text-black shadow-md";
+                } else {
+                    tab.className = "filter-tab px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 glass-panel text-neutral-300 hover:text-white hover:border-gold-500/50";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                    card.classList.add('animate-fadeIn');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /* -------------------------------------------------------------
+           QUICK VIEW MODAL LOGIC
+        ------------------------------------------------------------- */
+        function openQuickView(id) {
+            const product = collectionProducts[id];
+            if (!product) return;
+
+            document.getElementById('qv-title').innerText = product.title;
+            document.getElementById('qv-tag').innerText = product.tag;
+            document.getElementById('qv-price').innerText = product.price;
+            document.getElementById('qv-desc').innerText = product.desc;
+            document.getElementById('qv-hours').innerText = product.hours;
+            document.getElementById('qv-material').innerText = product.material;
+            document.getElementById('qv-image').src = product.img;
+
+            const modal = document.getElementById('quick-view-modal');
+            modal.classList.remove('hidden-modal');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quick-view-modal').classList.add('hidden-modal');
+        }
+
+        /* -------------------------------------------------------------
+           BOOKING MODAL LOGIC
+        ------------------------------------------------------------- */
+        function openBookingModal(preselectedService = null) {
+            if (preselectedService) {
+                const serviceSelect = document.getElementById('booking-service');
+                for (let option of serviceSelect.options) {
+                    if (option.value.toLowerCase().includes(preselectedService.toLowerCase()) || 
+                        preselectedService.toLowerCase().includes(option.value.toLowerCase())) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            document.getElementById('booking-modal').classList.remove('hidden-modal');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden-modal');
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            closeBookingModal();
+            showToast("Appointment Requested. Our Atelier Concierge will reach out within 2 hours.", "gold");
+            event.target.reset();
+        }
+
+        /* -------------------------------------------------------------
+           NEWSLETTER SUBMIT LOGIC
+        ------------------------------------------------------------- */
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('newsletter-email');
+            if (emailInput.value) {
+                showToast("Welcome to the Atelier Circle. Look out for private invitations.", "gold");
+                emailInput.value = "";
+            }
+        }
+
+        /* -------------------------------------------------------------
+           PRESS QUOTES CAROUSEL
+        ------------------------------------------------------------- */
+        function updatePressQuote() {
+            const container = document.getElementById('press-quote-container');
+            container.style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('press-quote').innerText = pressQuotes[currentPressIndex].quote;
+                document.getElementById('press-author').innerText = pressQuotes[currentPressIndex].author;
+                container.style.opacity = '1';
+                
+                // Update dots
+                const dots = document.querySelectorAll('#press-dots span');
+                dots.forEach((dot, index) => {
+                    dot.className = index === currentPressIndex ? 'w-2 h-2 rounded-full bg-gold-500' : 'w-2 h-2 rounded-full bg-white/30';
+                });
+            }, 300);
+        }
+
+        function nextPressQuote() {
+            currentPressIndex = (currentPressIndex + 1) % pressQuotes.length;
+            updatePressQuote();
+        }
+
+        function prevPressQuote() {
+            currentPressIndex = (currentPressIndex - 1 + pressQuotes.length) % pressQuotes.length;
+            updatePressQuote();
+        }
+
+        /* -------------------------------------------------------------
+           STATS COUNTER ANIMATION
+        ------------------------------------------------------------- */
+        let countersAnimated = false;
+        function animateCounters() {
+            const section = document.getElementById('stats-section');
+            if (!section) return;
+
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && !countersAnimated) {
+                countersAnimated = true;
+                const counters = section.querySelectorAll('[data-target]');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const speed = target / 40;
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count) + (target === 100 ? '%' : '+');
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.innerText = target + (target === 100 ? '%' : '+');
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateCounters);
+
+        /* -------------------------------------------------------------
+           MOBILE MENU TOGGLE
+        ------------------------------------------------------------- */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        /* -------------------------------------------------------------
+           CUSTOM TOAST NOTIFICATION UTILITY
+        ------------------------------------------------------------- */
+        function showToast(message, type = "gold") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = `glass-panel px-6 py-4 rounded-2xl border border-gold-500/50 text-white text-xs font-medium tracking-wide flex items-center gap-3 shadow-2xl pointer-events-auto transform translate-y-2 opacity-0 transition-all duration-300`;
+            toast.innerHTML = `
+                <i class="fa-solid fa-crown text-gold-500 text-sm"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate In
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Remove Toast
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 4500);
+        }
+
+        /* Close Modals on ESC Key */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeQuickView();
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>
