@@ -126,6 +126,76 @@
             pointer-events: none;
             visibility: hidden;
         }
+
+        /* Light theme */
+        body.light-mode {
+            background: #f7f2ea;
+            color: #30251d;
+        }
+
+        body.light-mode #main-header,
+        body.light-mode #mobile-menu {
+            background: rgba(255, 252, 247, 0.92);
+            border-color: rgba(120, 81, 23, 0.16);
+        }
+
+        body.light-mode #ethos,
+        body.light-mode #collections,
+        body.light-mode #services,
+        body.light-mode #runway,
+        body.light-mode footer {
+            background: #f7f2ea;
+            border-color: rgba(120, 81, 23, 0.14);
+        }
+
+        body.light-mode #services {
+            background: linear-gradient(180deg, #f7f2ea 0%, #efe4d4 50%, #f7f2ea 100%);
+        }
+
+        body.light-mode .glass-panel {
+            background: rgba(255, 253, 249, 0.88);
+            border-color: rgba(120, 81, 23, 0.2);
+            box-shadow: 0 12px 30px rgba(73, 47, 22, 0.08);
+        }
+
+        body.light-mode .bg-neutral-900 {
+            background-color: #ece2d5;
+        }
+
+        body.light-mode section:not(:first-of-type) .text-white,
+        body.light-mode footer .text-white,
+        body.light-mode .modal-overlay .text-white,
+        body.light-mode #main-header .text-white,
+        body.light-mode #mobile-menu .text-white {
+            color: #2d2118 !important;
+        }
+
+        body.light-mode :is(#main-header, #mobile-menu, section:not(:first-of-type), footer, .modal-overlay) .text-neutral-200,
+        body.light-mode :is(#main-header, #mobile-menu, section:not(:first-of-type), footer, .modal-overlay) .text-neutral-300,
+        body.light-mode :is(#main-header, #mobile-menu, section:not(:first-of-type), footer, .modal-overlay) .text-neutral-400 {
+            color: #655a50 !important;
+        }
+
+        body.light-mode input,
+        body.light-mode select,
+        body.light-mode textarea {
+            background: #fffdf9 !important;
+            color: #2d2118 !important;
+            border-color: rgba(120, 81, 23, 0.28) !important;
+        }
+
+        body.light-mode input::placeholder,
+        body.light-mode textarea::placeholder {
+            color: #8b8178;
+        }
+
+        body.light-mode ::-webkit-scrollbar-track {
+            background: #f7f2ea;
+        }
+
+        body.light-mode ::-webkit-scrollbar-thumb {
+            background: #c98e3a;
+        }
     </style>
 </head>
 <body class="bg-obsidian text-neutral-200 font-sans selection:bg-gold-500 selection:text-black overflow-x-hidden">
@@ -158,6 +228,10 @@
 
             <!-- Header Action Button & Mobile Toggle -->
             <div class="flex items-center gap-4">
+                <button id="theme-toggle" type="button" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold-400/60" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode">
+                    <i id="theme-toggle-icon" class="fa-solid fa-sun text-sm" aria-hidden="true"></i>
+                    <span id="theme-toggle-label" class="sr-only">Switch to light mode</span>
+                </button>
                 <button onclick="openBookingModal()" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full border border-gold-500/60 text-gold-400 text-xs tracking-widest uppercase hover:bg-gold-500 hover:text-black transition-all duration-300 shadow-sm gold-glow-hover font-medium">
                     <i class="fa-regular fa-calendar-check mr-2"></i> Book Appointment
                 </button>
@@ -1119,6 +1193,45 @@
         }
 
         window.addEventListener('scroll', animateCounters);
+
+        /* -------------------------------------------------------------
+           LIGHT / DARK THEME
+        ------------------------------------------------------------- */
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleIcon = document.getElementById('theme-toggle-icon');
+        const themeToggleLabel = document.getElementById('theme-toggle-label');
+
+        function setTheme(theme, savePreference = true) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light-mode', isLight);
+            themeToggleIcon.className = `fa-solid ${isLight ? 'fa-moon' : 'fa-sun'} text-sm`;
+
+            const nextThemeLabel = `Switch to ${isLight ? 'dark' : 'light'} mode`;
+            themeToggle.setAttribute('aria-label', nextThemeLabel);
+            themeToggle.setAttribute('title', nextThemeLabel);
+            themeToggle.setAttribute('aria-pressed', String(isLight));
+            themeToggleLabel.textContent = nextThemeLabel;
+
+            if (savePreference) {
+                try {
+                    localStorage.setItem('jperez-theme', theme);
+                } catch (error) {
+                    // The theme still works when browser storage is unavailable.
+                }
+            }
+        }
+
+        let savedTheme = 'dark';
+        try {
+            savedTheme = localStorage.getItem('jperez-theme') || 'dark';
+        } catch (error) {
+            // Use the default dark theme when browser storage is unavailable.
+        }
+
+        setTheme(savedTheme, false);
+        themeToggle.addEventListener('click', () => {
+            setTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light');
+        });
 
         /* -------------------------------------------------------------
            MOBILE MENU TOGGLE
